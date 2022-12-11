@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+        <div class="col-12">
+            <h3>Добавить шпаргалку</h3>
+            <form action="" method="post">
+                {{ form.hidden_tag() }}
+                <p>
+                    {{ form.title.label(class_="form-label") }} <br>
+                    {{ form.title(class_="form-control") }}
+                </p>
+                <p>
+                    {{ form.text.label(class_="form-label") }} <br>
+                    {{ form.text(class_="form-control", rows_="5") }}
+                </p>
+                <p>
+                    {{ form.is_published(class_="form-check-input") }}
+                    {{ form.is_published.label(class_="form-check-label") }}
+                </p>
+                <p>
+                    {{ form.category_id.label(class_="form-label m-") }}
+                    {{ form.category_id }}
+                </p>
+                <p>
+                    {{ form.submit(class_="btn btn-primary") }}
+                </p>
+            </form>
+        </div>
+    </div>
+{% endblock %}

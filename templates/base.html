@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Cheat_sheets</title>
+      <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon">
+      <link type="text/css" href="/static/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="/static/css/my_style.css">
+  </head>
+  <body>
+    <nav class="navbar bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('index') }}">
+                <img src="/static/img/sheets_logo.jpg" alt="Cheat-sheets" width="100" height="100">
+            </a>
+          <ul class="nav">
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('index') }}">Категории</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('add_cat') }}">+ Добавить категорию</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('add_sheet') }}">+ Добавить шпаргалку</a>
+              </li>
+          </ul>
+        </div>
+    </nav>
+    {% block content %}
+
+    {% endblock %}
+     <script src="static/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  </body>
+</html>

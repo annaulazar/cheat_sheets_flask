@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+        <div class="col-12">
+            <h3>Добавить категорию</h3>
+            <form action="" method="post" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                <div class="mb-3">
+                    {{ form.name.label(class_="form-label") }} <br> {{ form.name(class_="form-control") }}
+                </div>
+                <p>
+                    {{ form.is_published(class_="form-check-input") }} {{ form.is_published.label(class_="form-check-label") }}
+                </p>
+                <p>
+                    {{ form.logo.label(class_="form-label") }} <br> {{ form.logo() }}
+                </p>
+                <p>
+                    {{ form.submit(class_="btn btn-primary") }}
+                </p>
+            </form>
+        </div>
+    </div>
+{% endblock %}

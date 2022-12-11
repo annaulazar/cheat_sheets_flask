@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+        <div class="row mt-4">
+            {% for item in object_list %}
+                <div class="col-3 mb-3">
+                    <div class="card">
+                        <img src="static/logo/{{ item.logo }}" class="card-img-top" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ item.name }}</h5>
+                            <a href="{{ url_for('cat_sheets', cat_id=item.id) }}" class="btn btn-primary">Смотреть шпаргалки</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
