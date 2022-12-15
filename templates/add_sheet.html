@@ -21,9 +21,10 @@
                     {{ form.category_id.label(class_="form-label m-") }}
                     {{ form.category_id }}
                 </p>
-                <p>
+                <span>
                     {{ form.submit(class_="btn btn-primary") }}
-                </p>
+                </span>
+                <span><a class="btn btn-primary m-2" href="{{ url_for('index') }}">Отмена</a></span>
             </form>
         </div>
     </div>

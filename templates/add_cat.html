@@ -14,9 +14,10 @@
                 <p>
                     {{ form.logo.label(class_="form-label") }} <br> {{ form.logo() }}
                 </p>
-                <p>
+                <span>
                     {{ form.submit(class_="btn btn-primary") }}
-                </p>
+                </span>
+                <span><a class="btn btn-primary m-2" href="{{ url_for('index') }}">Отмена</a></span>
             </form>
         </div>
     </div>

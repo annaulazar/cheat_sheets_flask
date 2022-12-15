@@ -14,12 +14,31 @@
         <div class="row mt-4">
             {% for item in object_list %}
                 <div class="col-4 mb-3">
-                    <div class="card"">
+                    <div class="card">
                         <div class="card-body">
                           <h5 class="card-title">{{ item.title }}</h5>
                           <p class="card-text" style="white-space: pre-wrap">{{ item.text }}</p>
                           <a href="{{ url_for('edit_sheet', sheet_id=item.id) }}" class="card-link">Изменить</a>
-                          <a href="{{ url_for('delete_sheet', sheet_id=item.id) }}" class="card-link">Удалить</a>
+                          <a href="#staticBackdrop" class="card-link" data-bs-toggle="modal">Удалить</a>
+
+                            <!-- Модальное окно -->
+                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Подтверждение</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                    Действительно удалить?
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                                    <a href="{{ url_for('delete_sheet', sheet_id=item.id) }}" type="button" class="btn btn-primary">Удалить</a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                         </div>
                     </div>
                 </div>
