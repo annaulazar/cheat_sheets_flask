@@ -16,3 +16,6 @@ class SheetsForm(FlaskForm):
     category_id = SelectField('Категория', choices=[])
     is_published = BooleanField('Опубликовано')
     submit = SubmitField('Сохранить')
+
+
+

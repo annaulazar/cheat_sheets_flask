@@ -30,7 +30,7 @@ def index():
 def cat_sheets(cat_id):
     sheets = Sheet.query.filter(Sheet.category_id == cat_id).all()
     category = Category.query.get(cat_id)
-    return render_template('sheets.html', object_list=sheets, category=category)
+    return render_template('sheets.html', object_list=sheets, category=category, title=category.name)
 
 
 @app.route('/cat/add', methods=['GET', 'POST'])
@@ -43,7 +43,7 @@ def add_cat():
         if request.files['logo'].filename != '':
             upload_image(request, category)
         return redirect(url_for('index'))
-    return render_template('add_cat.html', form=form)
+    return render_template('add_cat.html', form=form, title='Add category')
 
 
 @app.route('/sheet/add', methods=['GET', 'POST'])
@@ -60,7 +60,7 @@ def add_sheet():
         db.session.add(sheet)
         db.session.commit()
         return redirect(url_for('cat_sheets', cat_id=sheet.category_id))
-    return render_template('add_sheet.html', form=form)
+    return render_template('add_sheet.html', form=form, title='Add sheet')
 
 
 @app.route('/cat/<int:cat_id>/edit', methods=['GET', 'POST'])
@@ -75,7 +75,7 @@ def edit_cat(cat_id):
         if request.files['logo'].filename != '':
             upload_image(request, res)
         return redirect(url_for('index'))
-    return render_template('add_cat.html', form=form)
+    return render_template('add_cat.html', form=form, title=res.name)
 
 
 @app.route('/cat/<int:cat_id>/delete')
@@ -104,7 +104,7 @@ def edit_sheet(sheet_id):
         db.session.add(res)
         db.session.commit()
         return redirect(url_for('cat_sheets', cat_id=res.category_id))
-    return render_template('add_sheet.html', form=form)
+    return render_template('add_sheet.html', form=form, title=res.title)
 
 
 @app.route('/sheet/<int:sheet_id>/delete')
